@@ -1,0 +1,101 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+.page {
+    margin: 0;
+    background-color: $white;
+    color: $dark;
+    font-family: 'Roboto Regular', sans-serif;
+}
+.is-hidden {
+    visibility: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.heading--hide {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    outline-offset: 0;
+  
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+.no-scroll {
+    overflow: hidden;
+}
+.button--small {
+    min-width: 98px;
+    height: 32px;
+
+    background: $fresh-green;
+
+    border-radius: 30px;
+
+    color: $dark;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        background: $yellow;
+    }
+}
+.button--large {
+    min-width: 106px;
+    height: 40px;
+    
+    background: $white;
+    
+    border: 2px solid $green;
+    border-radius: 30px;
+
+    color: $dark;
+    transition: $trans;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        background: $fresh-green;
+
+        border-color: $fresh-green;
+    }
+}
+.button-subscribe--solid {
+    min-width: 103px;
+    height: 42px;
+
+    background: $fresh-green;
+    border-radius: 30px;
+
+    color: $dark;
+    
+    &:hover,
+    &:focus {
+        cursor: pointer;
+
+        background: $yellow;
+    }
+}
+.button-subscribe--bordered {
+    min-width: 103px;
+    height: 42px;
+    
+    background: $white;
+    border: 2px solid $green;
+    border-radius: 30px;
+
+    color: $dark;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        
+        border-color: $yellow;
+    }
+}

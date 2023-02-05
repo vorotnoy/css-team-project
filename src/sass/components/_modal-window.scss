@@ -1,0 +1,262 @@
+.backdrop {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: $backdrop;
+    opacity: 1;
+    transition: opacity $trans
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-btn__close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: $shadow;
+    transition: fill $trans;
+
+    &:hover,
+    &:focus {
+        fill: $green;
+        cursor: pointer;
+    }
+}
+
+.modal {
+    position: absolute;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    width: 320px;
+    height: 449px;
+    padding: 32px 20px;
+
+    @media screen and(min-width:768px) {
+        padding: 32px 32px;
+    }
+
+    background: $yellow;
+
+    box-shadow: $shadow;
+    border-radius: 30px;
+
+    @include tablet {
+        width: 458px;
+        height: 449px;
+    }
+
+    @include desktop {
+        width: 458px;
+        height: 449px;
+    }
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform $trans;
+
+    .backdrop.is-hidden & {
+        scale: 0;
+    }
+}
+
+.modal__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.2;
+    color: $dark;
+    text-align: center;
+}
+
+.modal-form__label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+
+.modal-form__input {
+    position: relative;
+    width: 280px;
+    height: 48px;
+
+    background: $white;
+
+    border: 1px solid $yellow;
+    box-shadow: inset $shadow1;
+    border-radius: 30px;
+
+    padding: 14px 12px;
+    outline: none;
+    transition: border $trans;
+
+    @media screen and(min-width:768px) {
+        width: 394px;
+        height: 48px;
+
+        border: 1px solid $border;
+        box-shadow: inset $shadow1;
+        border-radius: 30px;
+    }
+
+    &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.25;
+        color: $placeholder;
+        background: $white;
+
+    }
+
+    /* валідность введених значень*/
+    &:not(:placeholder-shown):invalid {
+        border: 1px solid $btn;
+    }
+
+    &:not(:placeholder-shown):valid {
+        border: 1px solid $green;
+    }
+}
+
+.modal-errormes__email,
+.modal-errormes__tel,
+.modal-errormes__name,
+.modal-error__mes {
+    position: absolute;
+    bottom: -17px;
+    left: 28px;
+
+    display: none;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #FF705D;
+
+    @media screen and (min-width:768px) {
+        font-size: 13px;
+    }
+
+    &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background-image: url('../images/modal-window/icon-warning.svg');
+        position: absolute;
+        left: -16px;
+        top: 2px;
+    }
+}
+
+/* меседж щодо невалідності введенних значень*/
+.modal-error__name:not(:placeholder-shown):invalid+.modal-errormes__name,
+.modal-error__tel:not(:placeholder-shown):invalid+.modal-errormes__tel,
+.modal-error__email:not(:placeholder-shown):invalid+.modal-errormes__email {
+    display: block;
+}
+
+.modal-form__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    color: $dark;
+
+    margin-bottom: 2px;
+    margin-left: 12px;
+
+    text-align: left;
+}
+
+.btn-error__msg {
+    position: absolute;
+    bottom: 79px;
+    left: 77px;
+
+    @media screen and(min-width:768px) {
+        left: 146px;
+    }
+
+    display: none;
+}
+
+.btn-error__svg {
+    position: relative;
+}
+
+.btn-error__text {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FAEDEB;
+}
+
+.modal-form__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    border: 2px solid $green;
+    border-radius: 30px;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.5;
+
+    background: $white;
+    color: $main-text;
+
+    padding: 10px 38px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 46px;
+
+    transition: border $trans, background-color $trans;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+
+    /* перевірка валідності форми вцілому*/
+    .modal-form:valid & {
+        background-color: $fresh-green;
+        border: 2px solid $green;
+    }
+
+    /*зміна кнопки при невалід формі */
+    .modal-form:invalid &:active,
+    .modal-form:invalid &:hover {
+        background-color: $white;
+        border: 2px solid $btn;
+    }
+
+    /*повідомлення на батоні про обовязкові поля*/
+    .modal-form:invalid &:active+.btn-error__msg,
+    .modal-form:invalid &:hover+.btn-error__msg  {
+        display: block;
+    }
+
+    .modal-form:invalid &:active .modal-error__mes,
+    .modal-form:invalid &:active .modal-error__mes {
+        display: block;
+    }
+}
