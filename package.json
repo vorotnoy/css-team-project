@@ -1,22 +1,17 @@
 {
-  "name": "parcel-project-template",
+  "name": "css-team-project",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://sklef5.github.io/team-project/",
+  "homepage": "https://vorotnoy.github.io/css-team-project/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /team-project/"
+    "build": "parcel build src/*.html --public-url /css-team-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sklef5/team-project"
+    "url": "git+https://github.com/vorotnoy/css-team-project"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
-  },
   "dependencies": {
     "modern-normalize": "^1.1.0"
   },
